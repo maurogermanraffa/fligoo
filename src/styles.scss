@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+html,
+body {
+    height: 100%;
+    background-color: #F3C5FF;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+h1,
+div {
+    cursor: default;
+}
+
+
+cdk-virtual-scroll-viewport {
+    min-height: auto !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 75vh;
+    width: 100%;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+
+    .cdk-virtual-scroll-content-wrapper {
+        position: initial !important;
+    }
+
+    .cdk-virtual-scroll-spacer {
+        height: 0px !important;
+    }
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #afafaf;
+        border-radius: 28px;
+    }
+}

@@ -1,0 +1,10 @@
+<div class="content">
+    <fligoo-headboard [title]="'Users List'" [subtitle]="'by request'"></fligoo-headboard>
+    <ng-container *ngIf="users.length">
+        <cdk-virtual-scroll-viewport class="virtual-scroll" itemSize="40" (scrolledIndexChange)="populateData()">
+            <div *cdkVirtualFor="let user of users">
+                <fligoo-card [user]="user"></fligoo-card>
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </ng-container>
+</div>

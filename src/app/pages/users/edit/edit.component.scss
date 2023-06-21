@@ -1,0 +1,28 @@
+.border {
+    background-color: #4D8076;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 30px;
+    max-width: 580px;
+    margin: auto;
+
+    .content {
+        max-width: 480px;
+        margin: auto;
+        margin-top: 80px;
+
+        .headboard {
+            display: inline-flex;
+            margin-top: 32px;
+        }
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-between;
+    }
+}

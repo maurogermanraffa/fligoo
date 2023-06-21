@@ -1,0 +1,20 @@
+<div class="image-container">
+  <img [src]="user.avatar" alt="image" class="image" />
+</div>
+<form [formGroup]="form" class="content">
+  <mat-form-field class="col-md-6 pl-md-0" appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input id="first_name" type="text" matInput formControlName="first_name" />
+  </mat-form-field>
+
+  <mat-form-field class="col-md-6 pr-md-0" appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input id="last_name" type="text" matInput formControlName="last_name" />
+  </mat-form-field>
+
+  <mat-form-field class="col-md-6 pr-md-0" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input id="email" type="text" matInput formControlName="email" />
+  </mat-form-field>
+
+</form>

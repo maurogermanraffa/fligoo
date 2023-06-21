@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="image-container">
+        <img [src]="user.avatar" alt="image" class="image" />
+        <div class="content-text">
+            <p class="name">
+                {{ user.first_name }} {{ user.last_name }}
+            </p>
+            <p class="name">
+                {{ user.email }}
+            </p>
+        </div>
+        <button mat-icon-button matTooltip="Primary" [routerLink]="['/users/edit/'+user.id]" color="primary"> <mat-icon
+                aria-hidden="false" aria-label="Example home icon" style="color: #00C9A7;margin: auto;" fontIcon="edit">
+            </mat-icon>
+        </button>
+    </div>
+</div>
