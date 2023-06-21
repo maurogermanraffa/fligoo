@@ -9,6 +9,7 @@ import { UsersModule } from './pages/users/users.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     SharedModule,
     CommonModule,
+    CoreModule,
     UsersModule,
     HttpClientModule,
     BrowserAnimationsModule

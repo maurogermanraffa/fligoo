@@ -6,18 +6,15 @@
                 <fligoo-personal-info [user]="user"></fligoo-personal-info>
                 <div class="mt-3 d-flex justify-content-end border-top pt-4 buttons-container">
                     <button mat-button class="generic btn-submit col-5" [routerLink]="['/users/']">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon" style="color: blue;"
-                            fontIcon="arrow_back"></mat-icon>
+                        <mat-icon class="blue" fontIcon="arrow_back"></mat-icon>
                         Previus Page
                     </button>
                     <button mat-button class="generic btn-submit col-5" (click)="delteUser()">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon" style="color: red;"
-                            fontIcon="person_off"></mat-icon>
+                        <mat-icon class="red" fontIcon="person_off"></mat-icon>
                         Delete
                     </button>
                     <button mat-button class="generic btn-submit col-5" [disabled]="!userForm.valid" type="submit">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon" style="color: green;"
-                            fontIcon="done"></mat-icon>
+                        <mat-icon class="green" fontIcon="done"></mat-icon>
                         Save Changes
                     </button>
                 </div>

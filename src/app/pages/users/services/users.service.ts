@@ -4,19 +4,20 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map, mergeMap, shareReplay, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
 import { Pagination, User } from '../interfaces/users.interfaces';
+import { ApiBridgeService } from 'src/app/core/services/api-bridge.service';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  constructor(private http: HttpClient) { }
+  constructor(private apiBridgeService: ApiBridgeService) { }
 
   private listUpdateUsers: User[] = [];
   private listDelete: User[] = [];
 
   getUsers(pageNro: number): Observable<Pagination> {
-    return this.http.get<any>(`${environment.users}?page=${pageNro}`).pipe(
+    return this.apiBridgeService.get<any>(`?page=${pageNro}`).pipe(
       map((response: Pagination) => {
         response.data.map((user: User) => {
           this.listUpdateUsers.map((userUpdate: User) => {
@@ -39,7 +40,7 @@ export class UsersService {
     if (this.listUpdateUsers.filter((user: User) => user.id === +userId).length > 0) {
       return of(this.listUpdateUsers.filter((user: User) => user.id === +userId)[0])
     } else {
-      return this.http.get<any>(`${environment.users}/${userId}`).pipe(
+      return this.apiBridgeService.get<any>(`/${userId}`).pipe(
         map((response: any) => {
           return <User>response.data
         }),
@@ -53,7 +54,7 @@ export class UsersService {
   }
 
   updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`https://reqres.in/api/users/${user.id}`, user).pipe(
+    return this.apiBridgeService.put<User>(`/${user.id}`, user).pipe(
       tap(() => {
         if (this.listUpdateUsers.filter((userUpdate: User) => userUpdate.id === +user.id).length > 0) {
           this.listUpdateUsers.map((userUpdate: User) => {
@@ -74,7 +75,7 @@ export class UsersService {
 
 
   deleteUser(user: User): Observable<User> {
-    return this.http.delete<User>(`https://reqres.in/api/users/${user.id}`).pipe(
+    return this.apiBridgeService.delete<User>(`/${user.id}`).pipe(
       tap(() => {
         this.listDelete.push(user)
       }),
