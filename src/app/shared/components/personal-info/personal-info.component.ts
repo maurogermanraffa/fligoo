@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroupDirective, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroupDirective, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, } from '@angular/router';
 import { Observable, map, mergeMap, tap, } from 'rxjs';
 import { User } from 'src/app/pages/users/interfaces/users.interfaces';
@@ -17,7 +17,6 @@ export class PersonalInfoComponent implements OnInit {
   form!: UntypedFormGroup
 
   constructor(private rootFormGroup: FormGroupDirective) { }
-
   ngOnInit(): void {
     this.form = this.rootFormGroup.control.get('personalInfo') as UntypedFormGroup
     this.form.addControl(
@@ -26,11 +25,11 @@ export class PersonalInfoComponent implements OnInit {
     )
     this.form.addControl(
       'first_name',
-      new UntypedFormControl(this.user.first_name, [Validators.required, Validators.minLength(3), Validators.maxLength(10)])
+      new UntypedFormControl(this.user.first_name, [Validators.required, Validators.minLength(3), Validators.maxLength(20)])
     )
     this.form.addControl(
       'last_name',
-      new UntypedFormControl(this.user.last_name, [Validators.required, Validators.minLength(3), Validators.maxLength(10)])
+      new UntypedFormControl(this.user.last_name, [Validators.required, Validators.minLength(3), Validators.maxLength(20)])
     )
     this.form.addControl(
       'email',

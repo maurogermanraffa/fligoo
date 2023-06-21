@@ -4,7 +4,7 @@ import { ApiBridgeService } from './services/api-bridge.service';
 
 
 @NgModule({
-  imports: [HttpClientModule,],
+  imports: [HttpClientModule],
   providers: [ApiBridgeService],
 })
 export class CoreModule { }

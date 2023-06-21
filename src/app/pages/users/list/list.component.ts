@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/pages/users/services/users.service';
 import { Pagination, User } from '../interfaces/users.interfaces';
 import { finalize, tap } from 'rxjs';
@@ -7,10 +7,13 @@ import { finalize, tap } from 'rxjs';
   selector: 'fligoo-list',
   styleUrls: ['./list.component.scss'],
   templateUrl: './list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserListComponent implements OnInit {
 
-  constructor(private usersService: UsersService) { }
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private usersService: UsersService) { }
 
   users: User[] = [];
   hasNextPage = true
@@ -27,10 +30,9 @@ export class UserListComponent implements OnInit {
       this.usersService.getUsers(this.pageNro).pipe(
         tap((pagination: Pagination) => {
           this.users = [...this.users, ...pagination.data];
-        }),
-        tap((pagination: Pagination) => {
           this.hasNextPage = pagination.total_pages !== pagination.page;
           this.pageNro = pagination.page + 1;
+          this.changeDetectorRef.markForCheck();
         }),
         finalize(() => {
           this.isLoading = false

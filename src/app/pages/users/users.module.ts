@@ -7,6 +7,7 @@ import { UsersRoutingModule } from './users.routing';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormGroupDirective, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserUtilsService } from './services/user.utils.service';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { FormGroupDirective, FormsModule, ReactiveFormsModule } from '@angular/f
   ],
   providers: [
     UsersService,
+    UserUtilsService,
     FormGroupDirective
   ],
 })

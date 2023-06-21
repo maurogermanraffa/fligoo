@@ -5,7 +5,8 @@ import { CardComponent } from './components/card/card.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormGroupDirective, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HeadboardComponent } from './components/headboard/headboard.component';
+import { HeadboardComponent } from './components/head-board/head-board.component';
+import { ButtonsComponent } from './components/buttons/buttons.component';
 
 @NgModule({
   imports: [
@@ -19,12 +20,14 @@ import { HeadboardComponent } from './components/headboard/headboard.component';
     SharedMaterialModule,
     HeadboardComponent,
     PersonalInfoComponent,
-    CardComponent
+    CardComponent,
+    ButtonsComponent
   ],
   declarations: [
     HeadboardComponent,
     PersonalInfoComponent,
-    CardComponent
+    CardComponent,
+    ButtonsComponent
   ],
   providers: [FormGroupDirective],
 })
